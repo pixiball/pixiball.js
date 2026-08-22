@@ -1,0 +1,69 @@
+{
+	"name": "pixiball.js",
+	"version": "1.0.0",
+	"author": "pixiball",
+	"description": "A powerful library for interacting with the PixiBall Headless API",
+	"keywords": [
+		"pixiball",
+		"headless",
+		"bot",
+		"room"
+	],
+	"homepage": "https://github.com/pixiball/pixiball.js#readme",
+	"bugs": {
+		"url": "https://github.com/pixiball/pixiball.js/issues"
+	},
+	"license": "MIT",
+	"sideEffects": false,
+	"files": [
+		"dist"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pixiball/pixiball.js.git"
+	},
+	"engines": {
+		"node": ">=22.18.0"
+	},
+	"scripts": {
+		"build": "tsdown",
+		"dev": "tsdown --watch",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"update:headless": "node scripts/update-headless.ts",
+		"test": "node --import ./scripts/load-env.ts --test --test-force-exit",
+		"test:coverage": "node --import ./scripts/load-env.ts --test --test-force-exit --experimental-test-coverage --test-coverage-exclude=src/generated/**",
+		"test:watch": "node --import ./scripts/load-env.ts --test --watch",
+		"type-check": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.3",
+		"@types/node": "^22.20.1",
+		"@types/ws": "^8.18.1",
+		"tsdown": "^0.22.4",
+		"typescript": "^5.9.3"
+	},
+	"type": "module",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/index.d.mts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			}
+		},
+		"./package.json": "./package.json"
+	},
+	"dependencies": {
+		"@webrtc-node/webrtc": "^0.2.1",
+		"https-proxy-agent": "^9.1.0",
+		"undici": "^7.16.0",
+		"ws": "^8.18.3"
+	}
+}
