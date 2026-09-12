@@ -63,7 +63,7 @@
 	"dependencies": {
 		"@webrtc-node/webrtc": "^0.2.1",
 		"https-proxy-agent": "^9.1.0",
-		"undici": "^7.16.0",
+		"undici": "^8.10.2",
 		"ws": "^8.18.3"
 	}
 }
